@@ -10,7 +10,7 @@ type Person struct {
 	Age  int    `json:"age"`  //case insensitive (i believe)
 }
 
-func parsePerson(s string) (Person, error) {
+func ParsePerson(s string) (Person, error) {
 	var person Person
 	err := json.Unmarshal([]byte(s), &person)
 	if err != nil {

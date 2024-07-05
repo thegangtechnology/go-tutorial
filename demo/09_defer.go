@@ -12,13 +12,13 @@ func Cat(fname string) {
 	if err != nil {
 		panic(err)
 	}
-	defer f.Close() // there are some subtlety
-	//defer func() {
-	//	err := f.Close()
-	//	if err != nil {
-	//		fmt.Println("close error", err)
-	//	}
-	//}()
+	//defer f.Close() // there are some subtlety
+	defer func() {
+		err := f.Close()
+		if err != nil {
+			fmt.Println("close error", err)
+		}
+	}()
 	scanner := bufio.NewScanner(f)
 	for scanner.Scan() {
 		fmt.Println(scanner.Text())
@@ -28,7 +28,8 @@ func Cat(fname string) {
 func DeferSubtlety() {
 	x := 1
 	//this is why I do anonymous function call
-	defer fmt.Println(x)
+	defer func() { fmt.Println(x) }()
+	defer fmt.Println("Mind")
 	x++
 	fmt.Println("hello", x)
 }

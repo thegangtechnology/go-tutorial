@@ -15,7 +15,10 @@ type ClassRoom struct {
 // There is no constructor in golang
 // but you can do this
 func EmptyClassRoom(name string) ClassRoom {
-	return ClassRoom{RoomName: name}
+	return ClassRoom{
+		RoomName: name,
+		Students: make([]Student, 0),
+	}
 }
 
 func (c *ClassRoom) AddStudent(s Student) {

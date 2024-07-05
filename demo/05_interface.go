@@ -36,5 +36,6 @@ func InterfaceDemo() {
 	// note how we never specify classroom implements HasStudents
 	// go is compile-time ducktyping
 	c := &ClassRoom{RoomName: "Class1"}
+	Add2Students(c)
 	fmt.Println("Class Room", c.NumStudents())
 }
