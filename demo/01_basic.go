@@ -17,7 +17,7 @@ func Hello() {
 
 //Control flow demo
 
-// IsPrime returns true if n is even
+// IsPrime returns true if n is prime
 func IsPrime(n int) bool {
 	if n <= 1 {
 		return false
